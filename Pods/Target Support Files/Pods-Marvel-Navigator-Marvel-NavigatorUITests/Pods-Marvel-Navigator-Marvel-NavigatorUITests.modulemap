@@ -1,0 +1,6 @@
+framework module Pods_Marvel_Navigator_Marvel_NavigatorUITests {
+  umbrella header "Pods-Marvel-Navigator-Marvel-NavigatorUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

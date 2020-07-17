@@ -1,0 +1,6 @@
+framework module Pods_Marvel_Navigator {
+  umbrella header "Pods-Marvel-Navigator-umbrella.h"
+
+  export *
+  module * { export * }
+}
