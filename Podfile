@@ -8,6 +8,8 @@ target 'Marvel-Navigator' do
   pod 'Hero'
   pod 'SwiftHash'
   pod 'PromiseKit'
+  pod 'SDWebImage'
+  pod 'SnapKit'
 
   # Pods for Marvel-Navigator
 

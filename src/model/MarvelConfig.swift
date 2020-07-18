@@ -14,26 +14,35 @@ import UIKit
 class MarvelConfig {
     
     /// The image that will be used in the header of the tableView
-    let headerImageName: String!
+    let headerImageName: String
     
     /// The background color for the viewController, this will be in sync with the top header image
-    let backgroundColor: UIColor!
+    let backgroundColor: UIColor
     
     /// The title that needs to be loaded, this basically used for a Navigation Controller or the Tab Controller
-    let title: String!
+    let title: String
     
     /// This is the Marvel resource path sho we can get our information from the API
-    let resourcePath: String!
+    let resourcePath: String
     
     /// This mapper will be responsible from converting the Marvel API response into a View Model the View Controller can understand
     /// ViewModelMapper is just an interface. We will have one specific class for each Marvel resource we want to support
     let viewModelMapper: ViewModelMapper!
     
-    init(title: String, headerImageName: String, backgroundColor: UIColor, resourcePath: String, mapper: ViewModelMapper) {
+    /// TableView class that needs to be used
+    let tableViewCellToDisplay: String
+    
+    /// TableView class that needs to be used
+    let apiFiltertingKey: String
+    
+    init(title: String, headerImageName: String, backgroundColor: UIColor, resourcePath: String, mapper: ViewModelMapper, cellToDisplay: String, apiFilteringKey: String) {
         self.title = title
         self.backgroundColor = backgroundColor
         self.headerImageName = headerImageName
         self.resourcePath = resourcePath
         self.viewModelMapper = mapper
+        self.tableViewCellToDisplay = cellToDisplay
+        self.apiFiltertingKey = apiFilteringKey
     }
+    
 }

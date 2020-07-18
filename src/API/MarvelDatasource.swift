@@ -24,18 +24,21 @@ class MarvelDatasource {
     ///   - path: The path for the resource we want to load from Marvel API
     ///   - offset: Default: 0 -> The offset for the array of elements in the resource. 0 will return the first element, X will return the element at possition X in the whole array of elements
     ///   - limit: Default: 20 -> The maximun number of elements we want to get back after the offset
-    func getMarvelResource(path: String, offset: Int = 0, limit: Int = 20) -> Promise<MarvelDataResponse> {
+    ///   - query: Optional query, if present, API will return filtered elements based on that query
+    func getMarvelResource(path: String, offset: Int = 0, limit: Int = 20, query: String?, filterBy: String?) -> Promise<MarvelDataResponse> {
         
         let timestamp = String(Int(NSDate().timeIntervalSince1970))
         let hash = MD5(timestamp + PRIVATE_KEY + PUBLIC_KEY).lowercased()
         
-        let urlParams = [
+        var urlParams = [
             "apikey": PUBLIC_KEY,
             "hash": hash,
             "ts": timestamp,
             "offset": String(offset),
             "limit": String(limit),
         ]
+        
+        if let query = query, let filterBy = filterBy { urlParams[filterBy] = query }
 
         let requestUrl = HTTP + "://" + MARVEL_HOST + path
         

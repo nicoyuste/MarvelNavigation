@@ -9,7 +9,7 @@
 import Foundation
 
 /// This class is able to convert from a Characters API response to our view MarvelListViewModel
-class CharactersViewModelMapper: ViewModelMapper {
+class ComicsViewModelMapper: ViewModelMapper {
     
     // MARK: ViewModelMapper protocol implementation
     
@@ -21,15 +21,18 @@ class CharactersViewModelMapper: ViewModelMapper {
         var objects: [MarvelListViewModel] = []
         for object in jsonObjects {
             guard let id = object["id"] as? Int,
-                  let name = object["name"] as? String,
+                  let title = object["title"] as? String,
+                  let description = object["description"] as? String,
                   let imageInfo = object["thumbnail"] as? [String: String] else { continue }
             
             var imageUrl: String?
             if let imagePath = imageInfo["path"], let imageExtension = imageInfo["extension"] {
-                imageUrl = imagePath + imageExtension
+                if !imagePath.contains("image_not_available") {
+                    imageUrl = imagePath + "." + imageExtension
+                }
             }
             
-            let newViewModel = MarvelListViewModel(id: String(id), name: name, description: object["description"] as? String, imageUrl: imageUrl)
+            let newViewModel = MarvelListViewModel(id: String(id), name: title, description: description, imageUrl: imageUrl)
             objects.append(newViewModel)
         }
         return objects

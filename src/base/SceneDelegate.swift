@@ -23,11 +23,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         // Lets create all the configurations we want to load in our application
         // TODO: This could be moved to a Config Factory Class
         let marvelConfigs = [
+            
+            MarvelConfig(title: "Comics",
+                         headerImageName: "comics",
+                         backgroundColor: .white,
+                         resourcePath: "/v1/public/comics",
+                         mapper: ComicsViewModelMapper(),
+                         cellToDisplay: "ComicListTableViewCell",
+                         apiFilteringKey: "titleStartsWith"),
+            
             MarvelConfig(title: "Heroes",
                          headerImageName: "heroes",
-                         backgroundColor: UIColor(red: 0.001, green: 0, blue: 0.001, alpha: 1),
+                         backgroundColor: UIColor(red: 0.561, green: 0.753, blue: 0.976, alpha: 1),
                          resourcePath: "/v1/public/characters",
-                         mapper: CharactersViewModelMapper())
+                         mapper: CharactersViewModelMapper(),
+                         cellToDisplay: "CharacterListTableViewCell",
+                         apiFilteringKey: "nameStartsWith" )
         ]
         
         // Create the tab bar with all the childs and push it into the Stack
