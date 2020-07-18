@@ -6,6 +6,8 @@ target 'Marvel-Navigator' do
   use_frameworks!
   pod 'Alamofire'
   pod 'Hero'
+  pod 'SwiftHash'
+  pod 'PromiseKit'
 
   # Pods for Marvel-Navigator
 

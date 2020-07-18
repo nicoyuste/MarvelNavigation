@@ -1,20 +1,36 @@
 PODS:
   - Alamofire (5.2.1)
   - Hero (1.5.0)
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.13.1):
+    - PromiseKit/CorePromise
+  - SwiftHash (2.0.2)
 
 DEPENDENCIES:
   - Alamofire
   - Hero
+  - PromiseKit
+  - SwiftHash
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Hero
+    - PromiseKit
+    - SwiftHash
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  SwiftHash: 6d312abe61c8359bdef8d0093642f3a70b1c17ba
 
-PODFILE CHECKSUM: 332b0cc0520570d0dc4abce43bea8e0328cf9362
+PODFILE CHECKSUM: 87c646bcbb96039ba4dc8bd701322153e585ab9c
 
 COCOAPODS: 1.9.2
