@@ -14,7 +14,8 @@ import UIKit
 class MarvelListTableViewCell: UITableViewCell {
     
     static let cellHeights: [String: CGFloat] = [
-        "ComicListTableViewCell": 150.0,
+        "ComicListTableViewCell": 200.0,
+        "SeriesListTableViewCell": 120.0,
         "CharacterListTableViewCell": 120.0
     ]
     

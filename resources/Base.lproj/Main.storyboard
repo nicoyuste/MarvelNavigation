@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,5 +23,91 @@
             </objects>
             <point key="canvasLocation" x="-206" y="-747"/>
         </scene>
+        <!--Marvel Details View Controller-->
+        <scene sceneID="gcG-vE-YhU">
+            <objects>
+                <viewController storyboardIdentifier="MarvelDetailsViewController" id="OwV-6j-NOO" customClass="MarvelDetailsViewController" customModule="Marvel_Navigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="khU-Dk-50K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uNv-2T-fnv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-1f-LnC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qnu-pd-eSs">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="image"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="PXi-Zc-cR1">
+                                                <rect key="frame" x="0.0" y="354" width="414" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="1is-l5-Oo5"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="PXi-Zc-cR1" firstAttribute="leading" secondItem="TIF-1f-LnC" secondAttribute="leading" id="B7O-yg-kzW"/>
+                                            <constraint firstAttribute="bottom" secondItem="PXi-Zc-cR1" secondAttribute="bottom" id="Kl3-7F-SB7"/>
+                                            <constraint firstAttribute="trailing" secondItem="qnu-pd-eSs" secondAttribute="trailing" id="PmT-LW-nxW"/>
+                                            <constraint firstAttribute="bottom" secondItem="qnu-pd-eSs" secondAttribute="bottom" id="SI2-t5-PDm"/>
+                                            <constraint firstAttribute="trailing" secondItem="PXi-Zc-cR1" secondAttribute="trailing" id="Vrj-bm-N9R"/>
+                                            <constraint firstAttribute="width" secondItem="TIF-1f-LnC" secondAttribute="height" multiplier="1:1" id="gFK-vD-YMe"/>
+                                            <constraint firstItem="qnu-pd-eSs" firstAttribute="leading" secondItem="TIF-1f-LnC" secondAttribute="leading" id="jvO-Xc-Ma2"/>
+                                            <constraint firstItem="qnu-pd-eSs" firstAttribute="top" secondItem="TIF-1f-LnC" secondAttribute="top" id="vIj-ey-lmV"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjS-wd-PS2">
+                                        <rect key="frame" x="0.0" y="420" width="414" height="15.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="title"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-Qd-nKb" userLabel="Description Label">
+                                        <rect key="frame" x="0.0" y="441.5" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="IFo-pL-ebl">
+                                        <rect key="frame" x="0.0" y="468" width="414" height="350"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uNv-2T-fnv" firstAttribute="top" secondItem="utT-iY-b9M" secondAttribute="top" id="2tB-5O-8iN"/>
+                            <constraint firstItem="utT-iY-b9M" firstAttribute="bottom" secondItem="uNv-2T-fnv" secondAttribute="bottom" id="EtW-ff-JIO"/>
+                            <constraint firstItem="utT-iY-b9M" firstAttribute="trailing" secondItem="uNv-2T-fnv" secondAttribute="trailing" id="QNr-ee-2V2"/>
+                            <constraint firstItem="uNv-2T-fnv" firstAttribute="leading" secondItem="utT-iY-b9M" secondAttribute="leading" id="xqc-1x-KwA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="utT-iY-b9M"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="2ba-Qd-nKb" id="qhw-LX-U0o"/>
+                        <outlet property="imageView" destination="qnu-pd-eSs" id="KBz-Ag-AMt"/>
+                        <outlet property="titleLabel" destination="sjS-wd-PS2" id="VBe-s9-hhh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9G0-gX-stg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="-742"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="white_gradient" width="133.33332824707031" height="133.33332824707031"/>
+    </resources>
 </document>

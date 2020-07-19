@@ -22,7 +22,6 @@ class ComicsViewModelMapper: ViewModelMapper {
         for object in jsonObjects {
             guard let id = object["id"] as? Int,
                   let title = object["title"] as? String,
-                  let description = object["description"] as? String,
                   let imageInfo = object["thumbnail"] as? [String: String] else { continue }
             
             var imageUrl: String?
@@ -32,7 +31,7 @@ class ComicsViewModelMapper: ViewModelMapper {
                 }
             }
             
-            let newViewModel = MarvelListViewModel(id: String(id), name: title, description: description, imageUrl: imageUrl)
+            let newViewModel = MarvelListViewModel(id: String(id), name: title, description: object["description"] as? String, imageUrl: imageUrl)
             objects.append(newViewModel)
         }
         return objects

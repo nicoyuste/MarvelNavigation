@@ -27,11 +27,14 @@
 		B2DCB34624C2F4A800670944 /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB34524C2F4A800670944 /* UIImage+Gradient.swift */; };
 		B2DCB34824C340D500670944 /* ComicsViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB34724C340D500670944 /* ComicsViewModelMapper.swift */; };
 		B2DCB34A24C341D700670944 /* MarvelListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB34924C341D700670944 /* MarvelListTableViewCell.swift */; };
-		B2DCB34D24C3426E00670944 /* CharacterListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB34B24C3426E00670944 /* CharacterListTableViewCell.xib */; };
-		B2DCB34E24C3426E00670944 /* ComicListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB34C24C3426E00670944 /* ComicListTableViewCell.xib */; };
 		B2DCB35024C343DE00670944 /* ComicListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB34F24C343DE00670944 /* ComicListTableViewCell.swift */; };
-		B2DCB35224C3583F00670944 /* CustomSearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB35124C3583F00670944 /* CustomSearchBarView.xib */; };
 		B2DCB35424C358A200670944 /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB35324C358A200670944 /* CustomSearchBarView.swift */; };
+		B2DCB35824C3B7A600670944 /* UIColor+Inverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB35724C3B7A600670944 /* UIColor+Inverse.swift */; };
+		B2DCB35F24C3B85300670944 /* CustomSearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB35A24C3B85300670944 /* CustomSearchBarView.xib */; };
+		B2DCB36024C3B85300670944 /* CharacterListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB35B24C3B85300670944 /* CharacterListTableViewCell.xib */; };
+		B2DCB36124C3B85300670944 /* ComicListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB35C24C3B85300670944 /* ComicListTableViewCell.xib */; };
+		B2DCB36224C3B85300670944 /* SeriesListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DCB35D24C3B85300670944 /* SeriesListTableViewCell.xib */; };
+		B2DCB36524C424BB00670944 /* MarvelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DCB36424C424BB00670944 /* MarvelDetailsViewController.swift */; };
 		D649702E2646E68838D2EBDF /* Pods_Marvel_Navigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C92119E0C16A294B0E93C93 /* Pods_Marvel_Navigator.framework */; };
 		D88C21786ED7F8D048CEE0B2 /* Pods_Marvel_Navigator_Marvel_NavigatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC39A1E19DD8B439899DD07 /* Pods_Marvel_Navigator_Marvel_NavigatorUITests.framework */; };
 /* End PBXBuildFile section */
@@ -86,11 +89,14 @@
 		B2DCB34524C2F4A800670944 /* UIImage+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		B2DCB34724C340D500670944 /* ComicsViewModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewModelMapper.swift; sourceTree = "<group>"; };
 		B2DCB34924C341D700670944 /* MarvelListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelListTableViewCell.swift; sourceTree = "<group>"; };
-		B2DCB34B24C3426E00670944 /* CharacterListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterListTableViewCell.xib; sourceTree = "<group>"; };
-		B2DCB34C24C3426E00670944 /* ComicListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComicListTableViewCell.xib; sourceTree = "<group>"; };
 		B2DCB34F24C343DE00670944 /* ComicListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListTableViewCell.swift; sourceTree = "<group>"; };
-		B2DCB35124C3583F00670944 /* CustomSearchBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSearchBarView.xib; sourceTree = "<group>"; };
 		B2DCB35324C358A200670944 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
+		B2DCB35724C3B7A600670944 /* UIColor+Inverse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Inverse.swift"; sourceTree = "<group>"; };
+		B2DCB35A24C3B85300670944 /* CustomSearchBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSearchBarView.xib; sourceTree = "<group>"; };
+		B2DCB35B24C3B85300670944 /* CharacterListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterListTableViewCell.xib; sourceTree = "<group>"; };
+		B2DCB35C24C3B85300670944 /* ComicListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComicListTableViewCell.xib; sourceTree = "<group>"; };
+		B2DCB35D24C3B85300670944 /* SeriesListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesListTableViewCell.xib; sourceTree = "<group>"; };
+		B2DCB36424C424BB00670944 /* MarvelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDetailsViewController.swift; sourceTree = "<group>"; };
 		BE884B05FD464359052F78BD /* Pods-Marvel-Navigator-Marvel-NavigatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-Navigator-Marvel-NavigatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Marvel-Navigator-Marvel-NavigatorUITests/Pods-Marvel-Navigator-Marvel-NavigatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0778EF2700D23F61BA3C411 /* Pods-Marvel-Navigator-Marvel-NavigatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-Navigator-Marvel-NavigatorUITests.release.xcconfig"; path = "Target Support Files/Pods-Marvel-Navigator-Marvel-NavigatorUITests/Pods-Marvel-Navigator-Marvel-NavigatorUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,8 +193,9 @@
 				B226970224C2D773009402F9 /* viewModel */,
 				B22696FB24C2D57E009402F9 /* API */,
 				B245FF0724C21C6D0059E7D2 /* model */,
-				B245FEEF24C1F9AD0059E7D2 /* MarvelListViewController.swift */,
 				B245FF0424C1FA510059E7D2 /* uiTests */,
+				B245FEEF24C1F9AD0059E7D2 /* MarvelListViewController.swift */,
+				B2DCB36424C424BB00670944 /* MarvelDetailsViewController.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -242,12 +249,10 @@
 		B2DCB33D24C2ED7100670944 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B2DCB34B24C3426E00670944 /* CharacterListTableViewCell.xib */,
-				B2DCB34C24C3426E00670944 /* ComicListTableViewCell.xib */,
+				B2DCB35924C3B85300670944 /* NIBs */,
 				B2DCB34024C2EE8800670944 /* CharacterListTableViewCell.swift */,
 				B2DCB34924C341D700670944 /* MarvelListTableViewCell.swift */,
 				B2DCB34F24C343DE00670944 /* ComicListTableViewCell.swift */,
-				B2DCB35124C3583F00670944 /* CustomSearchBarView.xib */,
 				B2DCB35324C358A200670944 /* CustomSearchBarView.swift */,
 			);
 			path = UI;
@@ -258,8 +263,20 @@
 			children = (
 				B2DCB34324C2F3A500670944 /* UIImage+AverageColor.swift */,
 				B2DCB34524C2F4A800670944 /* UIImage+Gradient.swift */,
+				B2DCB35724C3B7A600670944 /* UIColor+Inverse.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		B2DCB35924C3B85300670944 /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+				B2DCB35A24C3B85300670944 /* CustomSearchBarView.xib */,
+				B2DCB35B24C3B85300670944 /* CharacterListTableViewCell.xib */,
+				B2DCB35C24C3B85300670944 /* ComicListTableViewCell.xib */,
+				B2DCB35D24C3B85300670944 /* SeriesListTableViewCell.xib */,
+			);
+			path = NIBs;
 			sourceTree = "<group>";
 		};
 		D8BC46DE3396A36C6C60D766 /* Frameworks */ = {
@@ -381,11 +398,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2DCB36224C3B85300670944 /* SeriesListTableViewCell.xib in Resources */,
+				B2DCB35F24C3B85300670944 /* CustomSearchBarView.xib in Resources */,
+				B2DCB36024C3B85300670944 /* CharacterListTableViewCell.xib in Resources */,
 				B245FEFF24C1F9DF0059E7D2 /* Assets.xcassets in Resources */,
-				B2DCB34E24C3426E00670944 /* ComicListTableViewCell.xib in Resources */,
 				B245FF0124C1F9DF0059E7D2 /* Main.storyboard in Resources */,
-				B2DCB35224C3583F00670944 /* CustomSearchBarView.xib in Resources */,
-				B2DCB34D24C3426E00670944 /* CharacterListTableViewCell.xib in Resources */,
+				B2DCB36124C3B85300670944 /* ComicListTableViewCell.xib in Resources */,
 				B245FF0024C1F9DF0059E7D2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +548,8 @@
 				B245FEF624C1F9AD0059E7D2 /* SceneDelegate.swift in Sources */,
 				B2DCB34624C2F4A800670944 /* UIImage+Gradient.swift in Sources */,
 				B22696FA24C2D4ED009402F9 /* MarvelListViewModel.swift in Sources */,
+				B2DCB36524C424BB00670944 /* MarvelDetailsViewController.swift in Sources */,
+				B2DCB35824C3B7A600670944 /* UIColor+Inverse.swift in Sources */,
 				B2DCB34424C2F3A500670944 /* UIImage+AverageColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

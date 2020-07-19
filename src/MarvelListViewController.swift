@@ -9,9 +9,18 @@
 import UIKit
 import SDWebImage
 import SnapKit
+import JGProgressHUD
+import SwiftIcons
 
+fileprivate enum controllerMode {
+    case normal
+    case filtered
+}
 
-
+/* Things I would like to do on top of this view controller so we have a better user experience.
+ *
+ *  - Add a loading row at the bottom of the page so it is clear when we are loading more information
+*/
 class MarvelListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
     let HEADER_INSET = CGFloat(300)
@@ -24,49 +33,60 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    /* Things I would like to do on top of this view controller so we have a better user experience.
-     *
-     *  - Add a loading row at the bottom of the page so it is clear when we are loading more information
-     *  - We could store the initial set of objects so we don't have to refresh it after stop the search
-    */
-    
     // UI
     let tableView: UITableView!
     let imageView: UIImageView!
     let searchButton: UIButton!
     var searchTextField: UITextField?
+    let hud = JGProgressHUD(style: .dark)
     
     // Data
     let config: MarvelConfig!
     let dataSource: MarvelDatasource!
     
-    private var viewModels: [MarvelListViewModel] = []
+    private var mode: controllerMode = .normal
+    private var filteredViewModels: [MarvelListViewModel] = []
+    private var normalViewModels: [MarvelListViewModel] = []
+    private var viewModels: [MarvelListViewModel] {
+        get {
+            switch mode {
+                case .normal: return normalViewModels
+                case .filtered: return filteredViewModels
+            }
+        }
+    }
     private var totalViewModels = 0
+    private var query: String? = nil
     
+    // MARK: - Init Methods
     
     init(config: MarvelConfig, marvelDataSource: MarvelDatasource) {
         self.config = config
         self.dataSource = marvelDataSource
         self.imageView = UIImageView(image: UIImage(named: config.headerImageName) )
         self.tableView = UITableView()
-        self.searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
+        self.searchButton = UIButton(type: .custom)
         super.init(nibName: nil, bundle: nil)
         
-        searchButton.setImage(UIImage(named: "search_icon"), for: .normal)
-        searchButton.addTarget(self, action: #selector(self.enterSearchMode), for: .touchUpInside)
         imageView.contentMode = .scaleAspectFit
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        view.addSubview(tableView)
-        view.insertSubview(imageView, aboveSubview: tableView)
-        view.insertSubview(searchButton, aboveSubview: imageView)
-        
+        tableView.tableFooterView = UIView()
         tableView.backgroundColor = .clear
         imageView.backgroundColor = config.backgroundColor
+        
         view.backgroundColor = config.backgroundColor
+        view.addSubview(tableView)
+        view.addSubview(imageView)
+        view.addSubview(searchButton)
         
+        hud.textLabel.text = "Loading..."
         
+        searchButton.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
+        searchButton.setImage( UIImage.init(icon: .ionicons(.androidSearch), size: CGSize(width: 45, height: 45)).withRenderingMode(.alwaysTemplate), for: .normal)
+        searchButton.tintColor = config.backgroundColor.inverse()
+        searchButton.addTarget(self, action: #selector(self.enterSearchMode), for: .touchUpInside)
         searchButton.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(60)
             make.height.equalTo(60)
@@ -79,17 +99,17 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Management
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set tableView information
         tableView.contentInset = UIEdgeInsets(top: secureStatusBarHeight + HEADER_INSET - HEADER_HEIGHT, left: 0, bottom: 0, right: 0)
         tableView.register(UINib(nibName: config.tableViewCellToDisplay, bundle: nil), forCellReuseIdentifier: "Cell")
         
         // Load initial content into the View Controller
         loadViewModels(offset: 0)
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -100,42 +120,7 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
         super.viewWillAppear(animated)
     }
     
-    // MARK: - Manage data
-    
-    private func loadViewModels(offset: Int, query: String? = nil) {
-        dataSource.getMarvelResource(path: config.resourcePath,
-                                     offset: offset,
-                                     limit: 20,
-                                     query: query,
-                                     filterBy: config.apiFiltertingKey).done { response in
-                                        
-            self.totalViewModels = response.totalCount
-            self.viewModels.append(contentsOf: self.config.viewModelMapper.viewModelsFromAPIResponse(response: response))
-            self.tableView.reloadData()
-        }.catch { error in
-            // TODO: Handle error, probably an alert view that lets the user retry.
-            print(error.localizedDescription)
-        }
-    }
-    
-    private func loadMoreViewsModelsIfNeeded(currentIndex: Int) {
-        if currentIndex == viewModels.count - 3 && totalViewModels > viewModels.count {
-            loadViewModels(offset: viewModels.count - 1)
-        }
-    }
-    
-    
-    // MARK: - Actions
-    
-    @objc private func newQueryToFilter(textField: UITextField) {
-        if let text = textField.text, text.count >= 3 {
-            viewModels = []
-            tableView.reloadData()
-            loadViewModels(offset: 0, query: text)
-        }
-    }
-    
-    @objc private func enterSearchMode() {
+    private func createAddAndReturnCustomeSearchView() -> CustomSearchBarView {
         let searchView = CustomSearchBarView.instanceFromNib()
         searchView.frame = searchButton.frame
         searchView.backgroundColor = config.backgroundColor
@@ -144,26 +129,89 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
         searchView.textField.addTarget(self, action: #selector(newQueryToFilter), for: .editingChanged)
         searchTextField = searchView.textField
         view.insertSubview(searchView, belowSubview: searchButton)
-        UIView.animate(withDuration: 0.4) {
-            searchView.frame = CGRect(x: 0, y: self.secureStatusBarHeight, width: self.view.bounds.size.width, height: self.HEADER_HEIGHT)
-            self.tableView.contentInset = UIEdgeInsets(top: self.secureStatusBarHeight, left: 0, bottom: 0, right: 0)
-            self.searchButton.alpha = 0.0
+        return searchView
+    }
+    
+    // MARK: - Manage data
+    
+    private func loadViewModels(offset: Int, query: String? = nil) {
+        if viewModels.count <= 0 { hud.show(in: view) }
+        view.bringSubviewToFront(hud)
+        dataSource.getMarvelResource(path: config.resourcePath,
+                                     offset: offset,
+                                     limit: 20,
+                                     query: query,
+                                     filterBy: config.apiFiltertingKey).done { response in
+                                        
+                                        self.totalViewModels = response.totalCount
+                                        let viewModels = self.config.viewModelMapper.viewModelsFromAPIResponse(response: response)
+                                        
+                                        switch self.mode {
+                                            case .normal: self.normalViewModels.append(contentsOf: viewModels)
+                                            case .filtered: self.filteredViewModels.append(contentsOf: viewModels)
+                                        }
+                                        self.hud.dismiss()
+                                        self.tableView.reloadData()
+        }.catch { error in
+            // TODO: Handle error, probably an alert view that lets the user retry.
+            print(error.localizedDescription)
         }
     }
     
-   @objc private func closeSearchMode() {
-        viewModels = []
+    private func loadMoreViewsModelsIfNeeded(currentIndex: Int) {
+        if currentIndex == viewModels.count - 3 && totalViewModels > viewModels.count {
+            loadViewModels(offset: viewModels.count - 1, query: query)
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func newQueryToFilter(textField: UITextField) {
+        if let text = textField.text, text.count >= 3 {
+            filteredViewModels = []
+            tableView.reloadData()
+            query = text
+            loadViewModels(offset: 0, query: text)
+        }
+    }
+    
+    @objc private func enterSearchMode() {
+        mode = .filtered
         tableView.reloadData()
-        loadViewModels(offset: 0)
+        
+        let searchView = createAddAndReturnCustomeSearchView()
+        UIView.animate(withDuration: 0.2, animations: {
+            searchView.frame = CGRect(x: 0, y: self.secureStatusBarHeight, width: self.view.bounds.size.width, height: self.HEADER_HEIGHT)
+            self.tableView.contentInset = UIEdgeInsets(top: self.secureStatusBarHeight, left: 0, bottom: 0, right: 0)
+            self.searchButton.alpha = 0.0
+        }) { (success) in
+            self.searchTextField?.becomeFirstResponder()
+        }
+    }
+    
+    @objc private func closeSearchMode() {
+        mode = .normal
+        query = nil
+        filteredViewModels = []
+        tableView.reloadData()
     
         let searchView = view.viewWithTag(SEARCH_VIEW_TAG)
-        UIView.animate(withDuration: 0.4, animations: {
-            searchView?.alpha = 0.0
+        UIView.animate(withDuration: 0.2, animations: {
+            searchView?.frame = self.searchButton.frame
             self.searchButton.alpha = 1.0
             self.tableView.contentInset = UIEdgeInsets(top: self.secureStatusBarHeight + self.HEADER_INSET - self.HEADER_HEIGHT, left: 0, bottom: 0, right: 0)
         }) { (success) in
             searchView?.removeFromSuperview()
         }
+    }
+    
+    private func openDetails(index: IndexPath) {
+        guard let cell = tableView.cellForRow(at: index) as? MarvelListTableViewCell else { return }
+        cell.titleLabel.heroID = "title"
+        cell.isHeroEnabled = true
+        
+        let hvc = MarvelDetailsViewController.instantiate(with: viewModels[index.row])
+        navigationController?.present(hvc, animated: true, completion: nil)
     }
     
     // MARK: - ScrollView delegate
@@ -175,7 +223,7 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
         imageView.frame = CGRect(x: 0, y: secureStatusBarHeight, width: UIScreen.main.bounds.size.width, height: height)
     }
 
-    // MARK: - Table View
+    // MARK: - Table View Delegate
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -194,7 +242,6 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
         // Check if we want to load more view Models
         loadMoreViewsModelsIfNeeded(currentIndex: indexPath.row)
         
-        // Create and return current
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MarvelListTableViewCell else { return UITableViewCell() }
         let viewModel = viewModels[indexPath.row]
         cell.titleLabel.text = viewModel.name
@@ -215,6 +262,10 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
             
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetails(index: indexPath)
     }
 }
 

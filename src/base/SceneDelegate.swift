@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftIcons
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDelegate {
 
@@ -24,21 +25,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         // TODO: This could be moved to a Config Factory Class
         let marvelConfigs = [
             
+            MarvelConfig(title: "Heroes",
+            iconName: .iosPeopleOutline,
+            headerImageName: "heroes",
+            backgroundColor: UIColor(red: 0.561, green: 0.753, blue: 0.976, alpha: 1),
+            resourcePath: "/v1/public/characters",
+            mapper: CharactersViewModelMapper(),
+            cellToDisplay: "CharacterListTableViewCell",
+            apiFilteringKey: "nameStartsWith" ),
+            
+            MarvelConfig(title: "Series",
+                         iconName: .iosBrowsersOutline,
+                         headerImageName: "series",
+                         backgroundColor: .black,
+                         resourcePath: "/v1/public/series",
+                         mapper: ComicsViewModelMapper(),
+                         cellToDisplay: "SeriesListTableViewCell",
+                         apiFilteringKey: "titleStartsWith"),
+            
             MarvelConfig(title: "Comics",
+                         iconName: .iosBookOutline,
                          headerImageName: "comics",
                          backgroundColor: .white,
                          resourcePath: "/v1/public/comics",
                          mapper: ComicsViewModelMapper(),
                          cellToDisplay: "ComicListTableViewCell",
-                         apiFilteringKey: "titleStartsWith"),
-            
-            MarvelConfig(title: "Heroes",
-                         headerImageName: "heroes",
-                         backgroundColor: UIColor(red: 0.561, green: 0.753, blue: 0.976, alpha: 1),
-                         resourcePath: "/v1/public/characters",
-                         mapper: CharactersViewModelMapper(),
-                         cellToDisplay: "CharacterListTableViewCell",
-                         apiFilteringKey: "nameStartsWith" )
+                         apiFilteringKey: "titleStartsWith")
         ]
         
         // Create the tab bar with all the childs and push it into the Stack
@@ -46,6 +58,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         for config in marvelConfigs {
             let newHvc = MarvelListViewController(config: config, marvelDataSource: source)
             let navigationController = UINavigationController(rootViewController: newHvc)
+            navigationController.isHeroEnabled = true
+            navigationController.tabBarItem.image = UIImage(icon: .ionicons(config.icon), size: CGSize(width: 40,height: 40))
             navigationController.title = config.title
             tabBarController.addChild(navigationController)
         }

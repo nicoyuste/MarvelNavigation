@@ -19,6 +19,9 @@ class MarvelDatasource {
     private let MARVEL_HOST = "gateway.marvel.com"
     private let HTTP = "https"
     
+    /// This map will keep track of all the activere quest per path so we can cancel previous ones with the same path
+    private var requests: [String: DataRequest] = [:]
+    
     /// Calls to Marvel API and returns one marvel resource
     /// - Parameters:
     ///   - path: The path for the resource we want to load from Marvel API
@@ -39,11 +42,11 @@ class MarvelDatasource {
         ]
         
         if let query = query, let filterBy = filterBy { urlParams[filterBy] = query }
-
         let requestUrl = HTTP + "://" + MARVEL_HOST + path
         
+        requests[path]?.cancel()
         return Promise { seal in
-            AF.request(requestUrl, method: .get, parameters: urlParams)
+            requests[path] = AF.request(requestUrl, method: .get, parameters: urlParams)
                 .validate()
                 .responseJSON { response in
                     switch response.result {
@@ -59,4 +62,5 @@ class MarvelDatasource {
             }
         }
     }
+    
 }

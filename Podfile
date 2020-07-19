@@ -10,6 +10,8 @@ target 'Marvel-Navigator' do
   pod 'PromiseKit'
   pod 'SDWebImage'
   pod 'SnapKit'
+  pod 'JGProgressHUD'
+  pod 'SwiftIcons'
 
   # Pods for Marvel-Navigator
 
