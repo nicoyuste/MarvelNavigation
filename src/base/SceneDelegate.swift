@@ -60,7 +60,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         for config in marvelConfigs {
             let newHvc = MarvelListViewController(config: config, marvelDataSource: source)
             let navigationController = UINavigationController(rootViewController: newHvc)
-            navigationController.isHeroEnabled = true
             navigationController.tabBarItem.image = UIImage(icon: .ionicons(config.icon), size: CGSize(width: 40,height: 40))
             navigationController.title = config.title
             tabBarController.addChild(navigationController)

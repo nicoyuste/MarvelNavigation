@@ -39,7 +39,6 @@ The project is configured to use Cocoapods to download the following dependencie
 
 - Unit Testing. There are no much unit tests at this point and we should unit tests:
    - Datasource
-   - ViewModelMappers
    - ViewController
 - cellHeights implemantation is not super clean. We could have just a variable with a default value that gets overriden by each subclass
 - Configuration could be moved out of the SceneDelegate into some `ConfigFactory` class.
@@ -47,3 +46,4 @@ The project is configured to use Cocoapods to download the following dependencie
 - `MarvelDetailsViewController`:
    - Instead of loading all the information from the MarvelListViewModel, this viewController could use the API to load the DETAIL resource.
    - UI could show more data than only title and description, at the end, you already see that on the list.
+- Create icon and solve small UI issue with iPhone X

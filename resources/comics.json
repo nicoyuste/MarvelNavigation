@@ -1,0 +1,390 @@
+{
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2020 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2020 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2020 MARVEL</a>",
+  "etag": "429042eaefc9e74a95c9f70ee167acd2fd01604d",
+  "data": {
+    "offset": 10,
+    "limit": 2,
+    "total": 47211,
+    "count": 2,
+    "results": [
+      {
+        "id": 323,
+        "digitalId": 0,
+        "title": "Ant-Man (2003) #2",
+        "issueNumber": 2,
+        "variantDescription": "",
+        "description": "Ant-Man digs deeper to find out who is leaking secret information that threatens our national security.\r\n32 pgs./PARENTAL ADVISORY...$2.99",
+        "modified": "-0001-11-30T00:00:00-0500",
+        "isbn": "",
+        "upc": "5960605396-01911",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 0,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Ant-Man digs deeper to find out who is leaking secret information that threatens our national security.\r\n32 pgs./PARENTAL ADVISORY...$2.99"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/323",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/323/ant-man_2003_2?utm_campaign=apiRef&utm_source=c89ae99f9d32f213de36ea890ee718cc"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/551",
+          "name": "Ant-Man (2003 - 2004)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2029-12-31T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "-0001-11-30T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/323/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/600",
+              "name": "Clayton Crain",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/344",
+              "name": "Daniel Way",
+              "role": "writer"
+            }
+          ],
+          "returned": 2
+        },
+        "characters": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/323/characters",
+          "items": [],
+          "returned": 0
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/323/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/1808",
+              "name": "Cover #1808",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/1809",
+              "name": "Interior #1809",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/323/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 1158,
+        "digitalId": 0,
+        "title": "ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB (Trade Paperback)",
+        "issueNumber": 0,
+        "variantDescription": "",
+        "description": "The Ultimates vs. the Ultimate X-Men: the battle begins. When the X-Men do the worst thing they could to humanity, the government orders Captain America, Iron Man, Thor and the rest of the Ultimates to bring them down. A small but lethal army, the Ultimates were created to face these and other newly rising threats to mankind. But the X-Men's founder, Professor X, hasn't been training his students for nothing -- and the youngs mutants just might take out the Ultimates first.",
+        "modified": "2018-03-12T16:56:16-0400",
+        "isbn": "0-7851-1129-8",
+        "upc": "",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "",
+        "format": "Trade Paperback",
+        "pageCount": 112,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "The Ultimates vs. the Ultimate X-Men: the battle begins. When the X-Men do the worst thing they could to humanity, the government orders Captain America, Iron Man, Thor and the rest of the Ultimates to bring them down. A small but lethal army, the Ultimates were created to face these and other newly rising threats to mankind. But the X-Men's founder, Professor X, hasn't been training his students for nothing -- and the youngs mutants just might take out the Ultimates first."
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/1158",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/collection/1158/ultimate_x-men_vol_5_ultimate_war_tpb_trade_paperback?utm_campaign=apiRef&utm_source=c89ae99f9d32f213de36ea890ee718cc"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/216",
+          "name": "ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB (1999)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/18477",
+            "name": "Ultimate War (2003) #4"
+          },
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/18476",
+            "name": "Ultimate War (2003) #3"
+          },
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/18475",
+            "name": "Ultimate War (2003) #2"
+          },
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/18474",
+            "name": "Ultimate War (2003) #1"
+          }
+        ],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2029-12-31T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "1961-01-01T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 9.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/f0/4bc6670c80007",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/f0/4bc6670c80007",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 9,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/1158/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/232",
+              "name": "Chris Bachalo",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/452",
+              "name": "Virtual Calligr",
+              "role": "letterer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/6170",
+              "name": "Olivier Coipel",
+              "role": "penciler"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/312",
+              "name": "Mike Deodato",
+              "role": "penciler"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/181",
+              "name": "Geoff Johns",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/52",
+              "name": "Bruce Jones",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/88",
+              "name": "Mark Millar",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/479",
+              "name": "Paul Mounts",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/427",
+              "name": "Tim Townsend",
+              "role": "inker"
+            }
+          ],
+          "returned": 9
+        },
+        "characters": {
+          "available": 17,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/1158/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010908",
+              "name": "Beast (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010911",
+              "name": "Black Widow (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010913",
+              "name": "Captain America (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010917",
+              "name": "Colossus (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011131",
+              "name": "Hawkeye (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011005",
+              "name": "Hulk (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010933",
+              "name": "Iceman (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010946",
+              "name": "Jean Grey (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010943",
+              "name": "Magneto (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011007",
+              "name": "Nick Fury (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010963",
+              "name": "Quicksilver (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010966",
+              "name": "Rogue (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010971",
+              "name": "Scarlet Witch (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010978",
+              "name": "Storm (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011025",
+              "name": "Thor (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009689",
+              "name": "Vanisher (Ultimate)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010992",
+              "name": "Wasp (Ultimate)"
+            }
+          ],
+          "returned": 17
+        },
+        "stories": {
+          "available": 9,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/1158/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/270",
+              "name": "The Ultimates vs. the Ultimate X-Men: the battle begins. When the X-Men do the worst thing they could to humanity, the governmen",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39348",
+              "name": "Interior #39348",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39349",
+              "name": "Free Preview of Hulk #50",
+              "type": "promo"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39351",
+              "name": "Interior #39351",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39352",
+              "name": "Free Preview of Hulk #50",
+              "type": "promo"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39354",
+              "name": "Interior #39354",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39355",
+              "name": "Free Preview of Avengers 65",
+              "type": "promo"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/39357",
+              "name": "Interior #39357",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/65260",
+              "name": "ULTIMATE X-MEN VOL. 5: ULTIMATE WAR 0 cover",
+              "type": "cover"
+            }
+          ],
+          "returned": 9
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/1158/events",
+          "items": [],
+          "returned": 0
+        }
+      }
+    ]
+  }
+}
