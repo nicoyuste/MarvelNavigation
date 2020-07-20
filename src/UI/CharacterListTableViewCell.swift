@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// Table View cell to display Marvel Characters (Heroes)
+/// It overrides the MarvelListTableViewCell.  We override the actual class so we can override layoutSubviews and make a circle with the image view.
 class CharacterListTableViewCell: MarvelListTableViewCell {
     
     override func layoutSubviews() {

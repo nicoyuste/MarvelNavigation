@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+/// Custom View with a textField and clear button. It will be used for the search view on the List View Controller
 class CustomSearchBarView: UIView {
     
     @IBOutlet weak var textField: UITextField!

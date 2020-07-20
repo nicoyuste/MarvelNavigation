@@ -251,8 +251,8 @@
 			children = (
 				B2DCB35924C3B85300670944 /* NIBs */,
 				B2DCB34024C2EE8800670944 /* CharacterListTableViewCell.swift */,
-				B2DCB34924C341D700670944 /* MarvelListTableViewCell.swift */,
 				B2DCB34F24C343DE00670944 /* ComicListTableViewCell.swift */,
+				B2DCB34924C341D700670944 /* MarvelListTableViewCell.swift */,
 				B2DCB35324C358A200670944 /* CustomSearchBarView.swift */,
 			);
 			path = UI;

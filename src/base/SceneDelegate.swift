@@ -13,26 +13,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let window = window else { return }
         
+        // Creating the datasource here. This datasource is going to be injected into the viewController.
+        // Other coding pattern is for this MarvelDatasource to a be singleton and having the viewController directly without passing it in the init method.
+        // The problem with that approach is unit testing. Unit tests for singletons and with singletons is a nightmare.
+        // This way, from the unit test, I can inject any datasource and mock any data I want.
+        // TODO: We could create a protocol for datasources, that way, it is even easier to pass different datasources into the viewController.
         let source = MarvelDatasource()
+        
         // Lets create all the configurations we want to load in our application
         // TODO: This could be moved to a Config Factory Class
         let marvelConfigs = [
             
-            MarvelConfig(title: "Heroes",
-            iconName: .iosPeopleOutline,
-            headerImageName: "heroes",
-            backgroundColor: UIColor(red: 0.561, green: 0.753, blue: 0.976, alpha: 1),
-            resourcePath: "/v1/public/characters",
-            mapper: CharactersViewModelMapper(),
-            cellToDisplay: "CharacterListTableViewCell",
-            apiFilteringKey: "nameStartsWith" ),
+            MarvelConfig(title: "Heroes", // The title the list View Controller is going to be using
+                         iconName: .iosPeopleOutline, // The icon the list view controller will have in the tabBar
+                         headerImageName: "heroes", // Name of the image that will be loaded in header of the tableView
+                         backgroundColor: UIColor(red: 0.561, green: 0.753, blue: 0.976, alpha: 1), // Background color for the list viewController
+                         resourcePath: "/v1/public/characters", // Resource the viewController will load from the API using the injected datasource
+                         mapper: CharactersViewModelMapper(), // Mapper the viewController will use to convert API responses into viewModels
+                         cellToDisplay: "CharacterListTableViewCell", // Name of the cell the viewController will use to display results
+                         apiFilteringKey: "nameStartsWith" ), // query filter for the API
             
             MarvelConfig(title: "Series",
                          iconName: .iosBrowsersOutline,
@@ -64,34 +66,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
             tabBarController.addChild(navigationController)
         }
     }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
 }
 

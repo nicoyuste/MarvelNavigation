@@ -207,8 +207,6 @@ class MarvelListViewController: UIViewController, UITableViewDataSource, UITable
     
     private func openDetails(index: IndexPath) {
         guard let cell = tableView.cellForRow(at: index) as? MarvelListTableViewCell else { return }
-        cell.titleLabel.heroID = "title"
-        cell.isHeroEnabled = true
         
         let hvc = MarvelDetailsViewController.instantiate(with: viewModels[index.row])
         navigationController?.present(hvc, animated: true, completion: nil)

@@ -18,6 +18,8 @@ import Foundation
 import Foundation
 import UIKit
 
+/// Table View cell to display Marvel Comics
+/// It overrides the MarvelListTableViewCell. We override the actual class so we can modify the text color
 class ComicListTableViewCell: MarvelListTableViewCell {
     
     override func layoutSubviews() {

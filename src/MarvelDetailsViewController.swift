@@ -9,12 +9,17 @@
 import Foundation
 import UIKit
 import SnapKit
-import Hero
 import SDWebImage
 
 
+/// Details VIew Controller for the Marvel Resources.
+/// This viewController is pretty basic and it is here just to show how transitions in the app would happen.
+/// Things which can be improved:
+///    - Instead of loading all the information from the MarvelListViewModel, this viewController could use the API to load the DETAIL resource
+///    - UI could show more data than only title and description, at the end, you already see that on the list.
 class MarvelDetailsViewController: UIViewController {
     
+    /// The viewModel holding the information for the view
     private var viewModel: MarvelListViewModel!
     
     // UI
@@ -29,6 +34,8 @@ class MarvelDetailsViewController: UIViewController {
         return vc
     }
 
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         
         if let imageUrl = viewModel.imageUrl {
@@ -39,11 +46,11 @@ class MarvelDetailsViewController: UIViewController {
         }
         
         titleLabel.text = viewModel.name
-        
         descriptionLabel.text = viewModel.description
     }
     
     // MARK: - Actions
+    
     @objc private func close() {
         navigationController?.dismiss(animated: true, completion: nil)
     }

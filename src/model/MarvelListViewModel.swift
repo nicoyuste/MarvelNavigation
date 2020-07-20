@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// The viewModel used by the List View Controller.
+/// This is the only peace of the data the View Controller understands and injected mappers will be used to convert API responses into viewModels.
+///    You can see how this viewModels are created in MarvelListViewController.loadViewModels()
 struct MarvelListViewModel {
     
     /// The name that will be used in the table view cell

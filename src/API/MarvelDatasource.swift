@@ -11,6 +11,9 @@ import Alamofire
 import SwiftHash
 import PromiseKit
 
+/// Encapsulates the API information here so all API code is abstracted from the actual application.
+/// I could change the network implementation (example: change from Alamofire to NSURLSession) wihtout having to modify any more code than this class.
+/// PromiseKit will work exactly the same way and the ViewController won't have to do any change.
 class MarvelDatasource {
     
     // MARK: API static definitions

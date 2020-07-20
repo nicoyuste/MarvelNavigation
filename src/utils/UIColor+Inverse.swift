@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 extension UIColor {
+    
+    /// Returns the inverse color of the. Imagine your color is white, the inverse will be black.
     func inverse () -> UIColor {
         var r:CGFloat = 0.0; var g:CGFloat = 0.0; var b:CGFloat = 0.0; var a:CGFloat = 0.0;
         if self.getRed(&r, green: &g, blue: &b, alpha: &a) {
