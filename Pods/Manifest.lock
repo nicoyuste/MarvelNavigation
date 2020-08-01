@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.2.1)
-  - Hero (1.5.0)
   - JGProgressHUD (2.1)
   - PromiseKit (6.13.1):
     - PromiseKit/CorePromise (= 6.13.1)
@@ -20,7 +19,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Hero
   - JGProgressHUD
   - PromiseKit
   - SDWebImage
@@ -31,7 +29,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Hero
     - JGProgressHUD
     - PromiseKit
     - SDWebImage
@@ -41,7 +38,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
-  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
@@ -49,6 +45,6 @@ SPEC CHECKSUMS:
   SwiftHash: 6d312abe61c8359bdef8d0093642f3a70b1c17ba
   SwiftIcons: 3b748e57d9eee0c7c8d3bdbf2d742c0b1b4c6172
 
-PODFILE CHECKSUM: 1b0b2929d83c2f518922210552f482e575f4acdd
+PODFILE CHECKSUM: b7c28c39968b2f9bf8b90e96fd437c13c3d65030
 
 COCOAPODS: 1.9.2

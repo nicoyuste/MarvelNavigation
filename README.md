@@ -16,12 +16,12 @@
 
 Here you have a sample application which connects to Marvel API, downloads different resources, displays them into a List View and you can see the details of each element. As you can see in the code, the application is done in an abstract way so all the resource types are downloaded and displayed using the same tech stack.
 
-Here you have a click graph of the application architecture:
+The application is using the VIPER architecture:
 <html>
 <img src="https://github.com/nicoyuste/MarvelNavigation/raw/master/design_view.png">
 <html>
 
-There is more documention writter within the code itself.
+There is more documention writter within the code itself and you can check more about VIPER architecture [here](https://medium.com/joshtastic-blog/viper-architecture-c1884b0f81f5). 
 
 # Third party libraries I use.
 
@@ -39,11 +39,13 @@ The project is configured to use Cocoapods to download the following dependencie
 
 - Unit Testing. There are no much unit tests at this point and we should unit tests:
    - Datasource
-   - ViewController
+   - All Interactors
+   - All Presenters
 - cellHeights implemantation is not super clean. We could have just a variable with a default value that gets overriden by each subclass
-- Configuration could be moved out of the SceneDelegate into some `ConfigFactory` class.
-- We could create a protocol so datasources implement it. That will be easier to create different datasources with different implementations. Example: `OfflineDatasource` loading from internal memory and `OnlineDatasource` loading things from the backend.
+- We could create a protocol for datasources to implement it. That will be easier to create different datasources with different implementations. Example: `OfflineDatasource` loading from internal memory and `OnlineDatasource` loading things from the backend.
+- Presenter / View interaction is done because one knows each other. We should create protocols for these to talk so they don't need to know about each other class.
 - `MarvelDetailsViewController`:
    - Instead of loading all the information from the MarvelListViewModel, this viewController could use the API to load the DETAIL resource.
-   - UI could show more data than only title and description, at the end, you already see that on the list.
+   - UI show have more data than only title and description, at the end, you already seeing that on the list.
+   - This viewController is pushed directly into the stack and there is not a presenter handling it. If the information here grows, we should move this to a View - Presenter - Interactor solution.
 - Create icon and solve small UI issue with iPhone X
