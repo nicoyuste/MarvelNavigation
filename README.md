@@ -18,7 +18,7 @@ Here you have a sample application which connects to Marvel API, downloads diffe
 
 The application is using the VIPER architecture:
 <html>
-<img src="https://github.com/nicoyuste/MarvelNavigation/raw/master/design_view.png">
+<img src="https://github.com/nicoyuste/MarvelNavigation/raw/master/design_view_viper.png">
 <html>
 
 There is more documention writter within the code itself and you can check more about VIPER architecture [here](https://medium.com/joshtastic-blog/viper-architecture-c1884b0f81f5). 
